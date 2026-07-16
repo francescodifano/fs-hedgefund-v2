@@ -54,7 +54,7 @@ export default function Home() {
       </section>
       <div className="container-page mt-8 md:mt-12">
         <img
-          src={A('home-1.png')}
+          src={A('home-1.jpg')}
           alt=""
           className="h-[34vw] max-h-[480px] min-h-[200px] w-full object-cover"
           fetchPriority="high"

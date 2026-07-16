@@ -17,7 +17,7 @@ export default function SiteFooter() {
       <div className="container-page grid gap-12 py-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-20">
         {/* Q1 Report CTA card */}
         <div className="relative isolate flex min-h-[300px] flex-col justify-between overflow-hidden p-8 sm:p-10">
-          <img src={A('q1report.png')} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" />
+          <img src={A('q1report.jpg')} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" />
           <h2 className="font-sans text-5xl font-extrabold sm:text-6xl">Q1 Report</h2>
           <Button to="/newsroom" variant="light" className="self-start">Get Report</Button>
         </div>

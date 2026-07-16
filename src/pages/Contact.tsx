@@ -40,7 +40,7 @@ export default function Contact() {
         <div className="relative order-first lg:order-last">
           <div className="absolute -bottom-3 -left-3 hidden h-full w-full bg-mist sm:block" aria-hidden />
           <img
-            src={A('contact-mountain.png')}
+            src={A('contact-mountain.jpg')}
             alt="Snow-capped mountain at sunset"
             className="relative aspect-square w-full object-cover"
             loading="lazy"
