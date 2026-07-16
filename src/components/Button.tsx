@@ -23,6 +23,7 @@ const variants: Record<Variant, string> = {
 export default function Button({ children, to, href, onClick, type = 'button', variant = 'solid', className = '' }: Props) {
   const cls = `${base} ${variants[variant]} ${className}`
   if (to) return <Link to={to} className={cls} onClick={onClick}>{children}</Link>
-  if (href) return <a href={href} className={cls} onClick={onClick}>{children}</a>
+  // href is reserved for external links (e.g. a PDF hosted elsewhere) — always opens in a new tab.
+  if (href) return <a href={href} target="_blank" rel="noopener noreferrer" className={cls} onClick={onClick}>{children}</a>
   return <button type={type} className={cls} onClick={onClick}>{children}</button>
 }

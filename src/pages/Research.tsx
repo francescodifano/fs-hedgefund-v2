@@ -53,7 +53,12 @@ export default function Research() {
               the business, its financials, and the valuation case behind our view.
             </p>
             <div className="mt-8">
-              <Button to="/contact" variant="light">Read the report</Button>
+              <Button
+                href="https://fs-student-hedgefund.com/papers/Seagate_Technology_Equity_Research_December_23_2025.pdf"
+                variant="light"
+              >
+                Read the report
+              </Button>
             </div>
           </div>
         </article>
