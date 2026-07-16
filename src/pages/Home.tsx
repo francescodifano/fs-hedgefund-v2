@@ -9,7 +9,7 @@ const DEPT_CARDS = [
   {
     name: 'Index Construction',
     to: '/index-construction',
-    desc: 'Translating sector research into investable indices through rigorous methodology, transparent selection criteria, and systematic rebalancing.',
+    desc: 'Designing and maintaining custom indices through rigorous methodology, transparent selection criteria, and systematic rebalancing.',
   },
   {
     name: 'Hedge Fund',

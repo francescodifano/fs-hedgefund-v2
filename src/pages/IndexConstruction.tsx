@@ -3,11 +3,10 @@ import Container from '../components/Container'
 import { usePageTitle } from '../lib/usePageTitle'
 
 const STEPS = [
-  { n: '01', title: 'Screening', desc: 'Systematic top-down screening across global sectors to identify investable themes and structural opportunities.' },
-  { n: '02', title: 'Research', desc: 'Pod-based bottom-up analysis of individual securities, scored and ranked against a defined set of criteria.' },
-  { n: '03', title: 'Construction', desc: 'Formal index construction covering weighting methodology, rebalancing rules, and a full performance backtest.' },
-  { n: '04', title: 'Calculation', desc: 'Independent index calculation and administration by Solactive, ensuring full methodology transparency and regulatory compliance.' },
-  { n: '05', title: 'Issuance', desc: 'Structured product issuance under UniCredit’s onemarkets platform, bringing the index to market as a publicly tradable financial product.' },
+  { n: '01', title: 'Universe Definition', desc: 'Defining the eligible security universe based on market, sector, and liquidity criteria. Clear inclusion and exclusion rules ensure a transparent and replicable starting point.' },
+  { n: '02', title: 'Methodology Design', desc: 'Developing the weighting scheme, selection rules, and rebalancing frequency — designed to capture specific exposures while maintaining investability and minimizing turnover.' },
+  { n: '03', title: 'Backtesting & Analysis', desc: 'Rigorous historical simulation to evaluate index behaviour across market regimes. Performance, risk characteristics, and factor exposures are analysed to validate the methodology.' },
+  { n: '04', title: 'Maintenance & Rebalancing', desc: 'Ongoing index maintenance — periodic rebalancing, corporate action handling, and methodology reviews to ensure continued accuracy and relevance.' },
 ]
 
 // Index Construction — the richest department page (hero + intro + process),
@@ -36,8 +35,9 @@ export default function IndexConstruction() {
             from raw sector research all the way through to a live, investable product.
           </p>
           <p>
-            Our process follows a rigorous top-down methodology: systematic market screening, pod-based sector
-            research, disciplined asset selection, and formal index construction by our Structuring Desk.
+            Our process follows a rigorous, transparent methodology — from defining the eligible universe and
+            designing weighting schemes to backtesting across market regimes and maintaining each index through
+            disciplined rebalancing.
           </p>
           <p className="font-display text-h3 font-bold text-navy">
             In partnership with Solactive and UniCredit, we build real financial products — not simulations.
@@ -48,7 +48,7 @@ export default function IndexConstruction() {
       <section className="bg-mist py-16 md:py-24">
         <Container>
           <h2 className="font-display text-h1 font-bold text-navy">Our Process</h2>
-          <ol className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+          <ol className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s) => (
               <li key={s.n} className="border-t-2 border-navy/20 pt-5">
                 <div className="font-display text-3xl font-bold text-coral">{s.n}</div>
