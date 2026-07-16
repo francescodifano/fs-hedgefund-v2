@@ -1,0 +1,149 @@
+import { useEffect, useRef, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { asset as A } from '../lib/asset'
+import { DEPARTMENTS } from '../lib/nav'
+
+const navCls = ({ isActive }: { isActive: boolean }) =>
+  `font-sans font-extrabold text-[1.05rem] transition-colors ${isActive ? 'text-coral' : 'text-navy hover:text-coral'}`
+
+// One responsive header for the whole site: logo + primary nav + Departments
+// dropdown on desktop, hamburger → full-screen menu on mobile.
+export default function SiteHeader() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [deptOpen, setDeptOpen] = useState(false)
+  const [mobileDeptOpen, setMobileDeptOpen] = useState(false)
+  const { pathname } = useLocation()
+  const deptRef = useRef<HTMLDivElement>(null)
+  const deptActive = DEPARTMENTS.some((d) => d.to === pathname)
+
+  useEffect(() => {
+    setMobileOpen(false)
+    setDeptOpen(false)
+    setMobileDeptOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    if (!deptOpen) return
+    const onDown = (e: MouseEvent) => {
+      if (deptRef.current && !deptRef.current.contains(e.target as Node)) setDeptOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setDeptOpen(false)
+    document.addEventListener('mousedown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [deptOpen])
+
+  return (
+    <>
+      <header className="sticky top-0 z-50 border-b border-mist bg-white/95 backdrop-blur">
+      <div className="container-page flex h-20 items-center justify-between gap-4">
+        <Link to="/" aria-label="FS Student Hedge Fund — home" className="shrink-0">
+          <img src={A('logo-nav.png')} alt="FS Student Hedge Fund" className="h-9 w-auto sm:h-10" width="243" height="66" />
+        </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          <NavLink to="/newsroom" className={navCls}>Newsroom</NavLink>
+          <NavLink to="/research" className={navCls}>Research</NavLink>
+          <div ref={deptRef} className="relative">
+            <button
+              className={`inline-flex items-center gap-1 font-sans text-[1.05rem] font-extrabold transition-colors ${deptActive || deptOpen ? 'text-coral' : 'text-navy hover:text-coral'}`}
+              aria-expanded={deptOpen}
+              aria-haspopup="true"
+              onClick={() => setDeptOpen((o) => !o)}
+            >
+              Departments
+              <Chevron open={deptOpen} />
+            </button>
+            {deptOpen && (
+              <div
+                className="absolute left-1/2 top-full z-50 mt-4 w-64 -translate-x-1/2 border border-mist bg-white p-2 shadow-xl"
+                style={{ animation: 'fadeInUp .18s ease' }}
+              >
+                {DEPARTMENTS.map((d) => (
+                  <Link key={d.to} to={d.to} className="block px-4 py-2.5 font-sans font-semibold text-navy transition-colors hover:bg-mist">
+                    {d.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+          <NavLink to="/about" className={navCls}>About</NavLink>
+          <NavLink to="/contact" className={navCls}>Contact</NavLink>
+          <button aria-label="Search" className="text-navy transition-colors hover:text-coral">
+            <SearchIcon />
+          </button>
+        </nav>
+
+        {/* Mobile trigger */}
+        <button className="text-navy lg:hidden" aria-label="Open menu" aria-expanded={mobileOpen} onClick={() => setMobileOpen(true)}>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </div>
+      </header>
+
+      {/* Mobile menu — rendered OUTSIDE <header> so the header's backdrop-filter
+          doesn't trap this fixed overlay inside its containing block */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[60] flex flex-col bg-navy text-white lg:hidden">
+          <div className="container-page flex h-20 items-center justify-between">
+            <img src={A('logo-white.png')} alt="" className="h-9 w-auto" />
+            <button aria-label="Close menu" onClick={() => setMobileOpen(false)}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                <line x1="5" y1="5" x2="19" y2="19" />
+                <line x1="19" y1="5" x2="5" y2="19" />
+              </svg>
+            </button>
+          </div>
+          <nav className="container-page mt-4 flex flex-col gap-6 overflow-y-auto pb-16" aria-label="Mobile">
+            <Link to="/newsroom" className="font-sans text-3xl">Newsroom</Link>
+            <Link to="/research" className="font-sans text-3xl">Research</Link>
+            <button className="flex items-center gap-2 text-left font-sans text-3xl" onClick={() => setMobileDeptOpen((o) => !o)}>
+              Departments <Chevron open={mobileDeptOpen} big />
+            </button>
+            {mobileDeptOpen && (
+              <div className="flex flex-col gap-4 border-l border-white/25 pl-5">
+                {DEPARTMENTS.map((d) => (
+                  <Link key={d.to} to={d.to} className="font-sans text-xl text-white/85">{d.label}</Link>
+                ))}
+              </div>
+            )}
+            <Link to="/about" className="font-sans text-3xl">About</Link>
+            <Link to="/contact" className="font-sans text-3xl">Contact</Link>
+          </nav>
+        </div>
+      )}
+    </>
+  )
+}
+
+function Chevron({ open, big = false }: { open: boolean; big?: boolean }) {
+  return (
+    <svg className={`${big ? 'h-5 w-5' : 'h-3.5 w-3.5'} transition-transform ${open ? 'rotate-180' : ''}`} viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M2 4l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function SearchIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="11" cy="11" r="7" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" strokeLinecap="round" />
+    </svg>
+  )
+}
