@@ -17,7 +17,7 @@ export default function Newsroom() {
     <>
       {/* Hero */}
       <section className="container-page pt-12 md:pt-16">
-        <p className="font-display text-h3 italic text-coral">This Semester</p>
+        <p className="font-display text-h3 italic text-navy/60">This Semester</p>
         <h1 className="mt-3 font-display text-display font-bold text-navy">Newsroom</h1>
         <p className="mt-6 max-w-2xl text-lead text-navy/80">
           Talks, firm visits, and everything else happening this semester at FS Student Hedge Fund.
@@ -40,7 +40,7 @@ export default function Newsroom() {
             <div className="flex flex-col bg-navy p-8 text-white md:p-12">
               <div className="flex items-center gap-5">
                 <div className="shrink-0 text-center leading-none">
-                  <div className="bg-coral px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-white">
+                  <div className="bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-white">
                     Okt
                   </div>
                   <div className="bg-white px-4 py-2 font-display text-h3 font-bold text-navy">22</div>
@@ -51,7 +51,7 @@ export default function Newsroom() {
               <dl className="mt-8 space-y-5">
                 {EVENT_DETAILS.map((d) => (
                   <div key={d.label} className="border-t border-white/15 pt-4">
-                    <dt className="text-sm font-extrabold uppercase tracking-widest text-teal">{d.label}</dt>
+                    <dt className="text-sm font-extrabold uppercase tracking-widest text-white/60">{d.label}</dt>
                     <dd className="mt-1 text-lead text-white/85">{d.value}</dd>
                   </div>
                 ))}

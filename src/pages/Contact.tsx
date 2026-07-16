@@ -3,7 +3,7 @@ import Container from '../components/Container'
 import Button from '../components/Button'
 import { usePageTitle } from '../lib/usePageTitle'
 
-const field = 'w-full border-0 border-b-2 border-navy bg-transparent px-0 py-2 font-sans text-navy outline-none transition-colors focus:border-coral'
+const field = 'w-full border-0 border-b-2 border-navy/40 bg-transparent px-0 py-2 font-sans text-navy outline-none transition-colors focus:border-navy'
 
 // Contact — responsive rebuild of the Figma "Contact us" form + mountain photo.
 // The form is presentational for now (not wired to a backend).

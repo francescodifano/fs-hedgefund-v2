@@ -3,8 +3,12 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { asset as A } from '../lib/asset'
 import { DEPARTMENTS } from '../lib/nav'
 
+// Template language: nav stays navy; the current page gets a navy underline,
+// hover dims slightly. (No accent colors in the chrome.)
 const navCls = ({ isActive }: { isActive: boolean }) =>
-  `font-sans font-extrabold text-[1.05rem] transition-colors ${isActive ? 'text-coral' : 'text-navy hover:text-coral'}`
+  `font-sans font-extrabold text-[1.05rem] text-navy transition-opacity ${
+    isActive ? 'underline decoration-2 underline-offset-8' : 'hover:opacity-60'
+  }`
 
 // One responsive header for the whole site: logo + primary nav + Departments
 // dropdown on desktop, hamburger → full-screen menu on mobile.
@@ -57,7 +61,9 @@ export default function SiteHeader() {
           <NavLink to="/research" className={navCls}>Research</NavLink>
           <div ref={deptRef} className="relative">
             <button
-              className={`inline-flex items-center gap-1 font-sans text-[1.05rem] font-extrabold transition-colors ${deptActive || deptOpen ? 'text-coral' : 'text-navy hover:text-coral'}`}
+              className={`inline-flex items-center gap-1 font-sans text-[1.05rem] font-extrabold text-navy transition-opacity ${
+                deptActive || deptOpen ? 'underline decoration-2 underline-offset-8' : 'hover:opacity-60'
+              }`}
               aria-expanded={deptOpen}
               aria-haspopup="true"
               onClick={() => setDeptOpen((o) => !o)}
@@ -80,7 +86,7 @@ export default function SiteHeader() {
           </div>
           <NavLink to="/about" className={navCls}>About</NavLink>
           <NavLink to="/contact" className={navCls}>Contact</NavLink>
-          <button aria-label="Search" className="text-navy transition-colors hover:text-coral">
+          <button aria-label="Search" className="text-navy transition-opacity hover:opacity-60">
             <SearchIcon />
           </button>
         </nav>

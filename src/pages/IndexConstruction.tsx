@@ -51,7 +51,7 @@ export default function IndexConstruction() {
           <ol className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s) => (
               <li key={s.n} className="border-t-2 border-navy/20 pt-5">
-                <div className="font-display text-3xl font-bold text-coral">{s.n}</div>
+                <div className="font-display text-3xl font-bold text-navy/40">{s.n}</div>
                 <h3 className="mt-2 font-display text-h3 font-bold text-navy">{s.title}</h3>
                 <p className="mt-2 text-navy/70">{s.desc}</p>
               </li>

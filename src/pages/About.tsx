@@ -92,7 +92,7 @@ export default function About() {
               </div>
               <div className="bg-navy px-5 py-4 text-white">
                 <div className="font-sans font-extrabold">{m.name}</div>
-                <div className="text-sm text-coral">{m.role}</div>
+                <div className="text-sm text-white/80">{m.role}</div>
                 <div className="mt-1 text-xs text-white/55">{m.bg}</div>
               </div>
             </li>

@@ -52,7 +52,7 @@ export default function SiteFooter() {
               </li>
               <li className="flex gap-3">
                 <MailIcon />
-                <a href="mailto:info@fs-student-hedgefund.com" className="break-all transition-colors hover:text-white">
+                <a href="mailto:info@fs-student-hedgefund.com" className="text-[15px] break-words transition-colors hover:text-white">
                   info@fs-student-hedgefund.com
                 </a>
               </li>
