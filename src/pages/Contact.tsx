@@ -47,7 +47,7 @@ export default function Contact() {
               <span className="text-navy">Write a message</span>
               <textarea rows={4} value={message} onChange={(e) => setMessage(e.target.value)} className={`mt-2 resize-none ${field}`} />
             </label>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" className="w-full sm:w-auto">Submit</Button>
             <p className="text-sm text-navy/60">
               Submitting opens your email app with the message ready to send. You can also write to us directly at{' '}
               <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold text-navy">{CONTACT_EMAIL}</a>.
@@ -58,7 +58,7 @@ export default function Contact() {
         {/* Image follows the heading/form on mobile (title leads the page), sits right on desktop.
             self-start keeps the mist shadow hugging the image instead of the grid row height */}
         <div className="relative self-start">
-          <div className="absolute -bottom-3 -left-3 hidden h-full w-full bg-mist sm:block" aria-hidden />
+          <div className="absolute -bottom-2 -left-2 h-full w-full bg-mist sm:-bottom-3 sm:-left-3" aria-hidden />
           <img
             src={A('contact-mountain.jpg')}
             alt="Snow-capped mountain at sunset"

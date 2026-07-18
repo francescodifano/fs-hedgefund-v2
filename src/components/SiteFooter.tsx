@@ -71,15 +71,18 @@ function ReportCarousel() {
           </div>
         ))}
       </div>
-      {/* Pagination dots on the navy footer background (not over the photo) */}
-      <div className="mt-4 flex justify-center gap-2.5">
+      {/* Pagination dots on the navy footer background. The visible dot stays
+          small; the button around it is a 44px touch target. */}
+      <div className="mt-2 flex justify-center">
         {REPORTS.map((r, i) => (
           <button
             key={r.title}
             aria-label={`Show ${r.title}`}
             onClick={() => setIdx(i)}
-            className={`h-2.5 w-2.5 rounded-full transition-colors ${i === idx ? 'bg-white' : 'bg-white/40 hover:bg-white/60'}`}
-          />
+            className="grid h-11 w-11 place-items-center"
+          >
+            <span className={`h-2.5 w-2.5 rounded-full transition-colors ${i === idx ? 'bg-white' : 'bg-white/40 hover:bg-white/60'}`} />
+          </button>
         ))}
       </div>
     </div>
@@ -97,10 +100,11 @@ export default function SiteFooter() {
         <div className="grid gap-10 sm:grid-cols-2">
           <nav aria-label="Footer">
             <h3 className="font-sans text-xl font-extrabold">Pages</h3>
-            <ul className="mt-5 space-y-2.5">
+            <ul className="mt-3">
               {FOOTER_PAGES.map((p) => (
                 <li key={p.to}>
-                  <Link to={p.to} className="text-white transition-opacity hover:opacity-70">{p.label}</Link>
+                  {/* block + py-2 keeps rows at a comfortable ~40px touch height */}
+                  <Link to={p.to} className="block py-2 text-white transition-opacity hover:opacity-70">{p.label}</Link>
                 </li>
               ))}
             </ul>

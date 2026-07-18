@@ -24,7 +24,9 @@ export function DeptLeads({ names }: { names: string[] }) {
   return (
     <section className="container-page py-16 md:py-24">
       <h2 className="font-display text-h1 font-bold text-navy">Department Leads</h2>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* A lone lead gets a single, wider column on mobile instead of half the
+          viewport next to an empty cell */}
+      <div className={`mt-10 grid gap-4 sm:gap-6 lg:grid-cols-4 ${leads.length === 1 ? 'max-w-[280px] grid-cols-1 sm:max-w-none sm:grid-cols-2' : 'grid-cols-2'}`}>
         {leads.map((m) => (
           <TeamCard key={m.name} m={m} />
         ))}
@@ -65,10 +67,12 @@ export function JoinCta({ dept }: { dept: string }) {
   return (
     <section className="container-page py-16 md:py-24">
       <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
-        <h2 className="font-display text-h1 font-bold text-navy">Interested in {dept}?</h2>
+        <h2 className="font-display text-h1 font-bold text-navy">
+          Interested in <span className="whitespace-nowrap">{dept}?</span>
+        </h2>
         <Link
           to="/contact"
-          className="bg-navy px-16 py-6 font-sans text-2xl font-extrabold text-white transition-opacity hover:opacity-90"
+          className="block w-full bg-navy px-10 py-5 text-center font-sans text-xl font-extrabold text-white transition-opacity hover:opacity-90 md:w-auto md:px-16 md:py-6 md:text-2xl"
         >
           Apply
         </Link>

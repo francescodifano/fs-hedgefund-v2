@@ -125,7 +125,7 @@ export default function IndexConstruction() {
       <section className="bg-mist py-16 md:py-24">
         <Container>
           <p className="font-sans text-sm font-bold tracking-wide text-navy/60">Past Indices</p>
-          <h2 className="mt-3 font-display text-h1 font-bold text-navy">FSHF Energy Value Chain</h2>
+          <h2 className="mt-3 font-display text-h1 font-bold text-balance text-navy">FSHF Energy Value Chain</h2>
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-center">
             <figure>
               <img

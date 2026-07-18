@@ -32,7 +32,7 @@ export default function Research() {
             fetchPriority="high"
           />
         </div>
-        <div aria-hidden className="absolute -bottom-10 left-0 z-0 hidden h-28 w-[70vw] max-w-[1054px] bg-navy md:block" />
+        <div aria-hidden className="absolute -bottom-6 left-0 z-0 h-16 w-[78vw] bg-navy md:-bottom-10 md:h-28 md:w-[70vw] md:max-w-[1054px]" />
       </div>
 
       {/* Latest research (unchanged; extra top padding clears the band overhang) */}
@@ -43,10 +43,13 @@ export default function Research() {
         </p>
 
         <article className="mt-10 grid overflow-hidden bg-navy text-white lg:grid-cols-2">
+          {/* On mobile, crop tighter to the title area so the report text stays
+              legible (the cover is a raster, so shrinking it whole makes the
+              masthead unreadable) */}
           <img
             src={A('research-seagate-cover.jpg')}
             alt="Cover of the Seagate Technology equity research report"
-            className="aspect-[4/3] w-full object-cover object-left lg:aspect-auto lg:h-full"
+            className="aspect-square w-full object-cover object-[0%_15%] sm:aspect-[4/3] sm:object-left lg:aspect-auto lg:h-full"
             loading="lazy"
           />
           <div className="flex flex-col justify-center p-8 md:p-12">

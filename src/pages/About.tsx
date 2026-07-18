@@ -22,7 +22,7 @@ export default function About() {
               Frankfurt School's student-managed investment fund, where academic rigor meets real capital.
             </p>
             <div className="mt-8">
-              <Button to="/contact">Apply</Button>
+              <Button to="/contact" className="w-full sm:w-auto">Apply</Button>
             </div>
           </div>
         </div>
@@ -36,11 +36,11 @@ export default function About() {
           <img
             src={A('team-hero.jpg')}
             alt="The FS Student Hedge Fund team"
-            className="h-[42vw] max-h-[600px] min-h-[220px] w-full object-cover"
+            className="h-[42vw] max-h-[600px] min-h-[220px] w-full object-cover object-[50%_25%]"
             fetchPriority="high"
           />
         </div>
-        <div aria-hidden className="absolute -bottom-10 left-0 z-0 hidden h-28 w-[70vw] max-w-[1054px] bg-navy md:block" />
+        <div aria-hidden className="absolute -bottom-6 left-0 z-0 h-16 w-[78vw] bg-navy md:-bottom-10 md:h-28 md:w-[70vw] md:max-w-[1054px]" />
       </div>
 
       {/* Mission (extra top padding clears the band overhang) */}
@@ -71,7 +71,7 @@ export default function About() {
           A selective team of students operating across our departments, building real financial products together.
         </p>
 
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <ul className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
           {TEAM.map((m) => (
             <li key={m.name}>
               <TeamCard m={m} />

@@ -64,7 +64,7 @@ export default function Home() {
             fetchPriority="high"
           />
         </div>
-        <div aria-hidden className="absolute -bottom-10 left-0 z-0 hidden h-28 w-[70vw] max-w-[1054px] bg-navy md:block" />
+        <div aria-hidden className="absolute -bottom-6 left-0 z-0 h-16 w-[78vw] bg-navy md:-bottom-10 md:h-28 md:w-[70vw] md:max-w-[1054px]" />
       </div>
 
       {/* One team, one mission + stats + team photo */}
@@ -93,7 +93,7 @@ export default function Home() {
           <img
             src={A('team-hero.jpg')}
             alt="The FS Student Hedge Fund team"
-            className="aspect-[4/3] w-full object-cover"
+            className="aspect-[4/3] w-full object-cover object-[50%_20%]"
             loading="lazy"
           />
         </div>
@@ -132,7 +132,7 @@ export default function Home() {
           <h2 className="font-display text-h1 font-bold text-navy">Be Where Talent Starts.</h2>
           <Link
             to="/contact"
-            className="bg-navy px-16 py-6 font-sans text-2xl font-extrabold text-white transition-opacity hover:opacity-90"
+            className="block w-full bg-navy px-10 py-5 text-center font-sans text-xl font-extrabold text-white transition-opacity hover:opacity-90 md:w-auto md:px-16 md:py-6 md:text-2xl"
           >
             Contact us
           </Link>

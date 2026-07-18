@@ -46,7 +46,7 @@ export default function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur">
-      <div className="container-page flex h-24 items-center justify-between gap-4">
+      <div className="container-page flex h-20 items-center justify-between gap-4 md:h-24">
         <Link to="/" aria-label="FS Student Hedge Fund home" className="shrink-0">
           <img src={A('logo-nav.png')} alt="FS Student Hedge Fund" className="h-10 w-auto sm:h-12" width="243" height="66" />
         </Link>
@@ -83,7 +83,7 @@ export default function SiteHeader() {
         </nav>
 
         {/* Mobile trigger */}
-        <button className="text-navy lg:hidden" aria-label="Open menu" aria-expanded={mobileOpen} onClick={() => setMobileOpen(true)}>
+        <button className="-m-2 p-2 text-navy lg:hidden" aria-label="Open menu" aria-expanded={mobileOpen} onClick={() => setMobileOpen(true)}>
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
             <line x1="3" y1="7" x2="21" y2="7" />
             <line x1="3" y1="12" x2="21" y2="12" />
@@ -97,9 +97,9 @@ export default function SiteHeader() {
           doesn't trap this fixed overlay inside its containing block */}
       {mobileOpen && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-navy text-white lg:hidden">
-          <div className="container-page flex h-24 items-center justify-between">
+          <div className="container-page flex h-20 items-center justify-between md:h-24">
             <img src={A('logo-white.png')} alt="" className="h-9 w-auto" />
-            <button aria-label="Close menu" onClick={() => setMobileOpen(false)}>
+            <button aria-label="Close menu" className="-m-2 p-2" onClick={() => setMobileOpen(false)}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                 <line x1="5" y1="5" x2="19" y2="19" />
                 <line x1="19" y1="5" x2="5" y2="19" />
