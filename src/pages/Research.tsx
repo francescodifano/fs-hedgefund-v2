@@ -22,14 +22,14 @@ export default function Research() {
       </section>
 
       {/* Pull-quote */}
-      <section className="bg-mist py-16 md:py-24">
+      <section className="bg-mist py-14 md:py-20">
         <Container>
-          <figure className="max-w-4xl">
-            <blockquote className="font-display text-h1 font-bold text-navy">
+          <figure className="max-w-3xl">
+            <blockquote className="font-display text-h2 font-bold text-navy">
               &ldquo;Research is formalized curiosity. It is poking and prying with a purpose.&rdquo;
             </blockquote>
-            <figcaption className="mt-6 text-lead text-navy/70">
-              &mdash; <cite className="font-sans font-extrabold not-italic text-navy">Zora Neale Hurston</cite>
+            <figcaption className="mt-6">
+              <cite className="font-sans font-extrabold not-italic text-navy">Zora Neale Hurston</cite>
             </figcaption>
           </figure>
         </Container>

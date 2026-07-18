@@ -4,11 +4,10 @@ import { asset as A } from '../lib/asset'
 import { FOOTER_PAGES } from '../lib/nav'
 import Button from './Button'
 
+// Only platforms with a verified URL are listed (dead links don't ship).
+// TikTok/LinkedIn/YouTube can be added here as soon as their URLs exist.
 const SOCIALS = [
-  { icon: 'icon-instagram.svg', label: 'Instagram' },
-  { icon: 'icon-tiktok.svg', label: 'TikTok' },
-  { icon: 'icon-youtube.svg', label: 'YouTube' },
-  { icon: 'icon-linkedin.svg', label: 'LinkedIn' },
+  { icon: 'icon-instagram.svg', label: 'Instagram', url: 'https://instagram.com/fs_studenthedgefund' },
 ]
 
 // Report slides for the footer carousel (auto-advances every 5 seconds).
@@ -110,7 +109,7 @@ export default function SiteFooter() {
             <h3 className="mt-8 font-sans text-xl font-extrabold">Follow us</h3>
             <div className="mt-4 flex gap-3">
               {SOCIALS.map((s) => (
-                <a key={s.label} href="#" aria-label={s.label} className="grid h-9 w-9 place-items-center rounded bg-white/10 transition-colors hover:bg-white/20">
+                <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="grid h-9 w-9 place-items-center rounded bg-white/10 transition-colors hover:bg-white/20">
                   <img src={A(s.icon)} alt="" className="h-5 w-5" />
                 </a>
               ))}

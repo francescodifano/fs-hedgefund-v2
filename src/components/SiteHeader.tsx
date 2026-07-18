@@ -97,7 +97,7 @@ export default function SiteHeader() {
           doesn't trap this fixed overlay inside its containing block */}
       {mobileOpen && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-navy text-white lg:hidden">
-          <div className="container-page flex h-20 items-center justify-between">
+          <div className="container-page flex h-24 items-center justify-between">
             <img src={A('logo-white.png')} alt="" className="h-9 w-auto" />
             <button aria-label="Close menu" onClick={() => setMobileOpen(false)}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
