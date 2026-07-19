@@ -72,20 +72,22 @@
   font-family: var(--font-display);
 }
 
-/* Page-width container: fluid gutters, caps at the template's content width */
+/* One set of page rails for EVERYTHING (header, text, imagery) so the logo,
+   nav, headings and feature images all align on the same left/right edges
+   (team feedback). Mobile gutters unchanged. */
 @utility container-page {
-  width: 100%;
-  max-width: 84rem; /* 1344px */
-  margin-inline: auto;
-  padding-inline: clamp(1.25rem, 5vw, 4rem);
-}
-
-/* Wider variant for feature imagery (hero photos span wider than text content) */
-@utility container-wide {
   width: 100%;
   max-width: 96rem; /* 1536px */
   margin-inline: auto;
-  padding-inline: clamp(1rem, 3vw, 2.5rem);
+  padding-inline: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+/* Alias kept for feature imagery; identical rails by design. */
+@utility container-wide {
+  width: 100%;
+  max-width: 96rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 3vw, 2.5rem);
 }
 
 @keyframes fadeInUp {

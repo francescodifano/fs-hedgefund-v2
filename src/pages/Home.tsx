@@ -37,8 +37,8 @@ export default function Home() {
   usePageTitle()
   return (
     <>
-      {/* Hero */}
-      <section className="container-page pt-12 md:pt-16">
+      {/* Hero (a little more air below the header, per team feedback) */}
+      <section className="container-page pt-14 md:pt-20">
         <div className="grid gap-6 md:grid-cols-[1.25fr_1fr] md:items-end">
           <h1 className="font-display text-display text-navy">
             Discipline
@@ -54,13 +54,13 @@ export default function Home() {
       </section>
       {/* Hero image with the navy band bleeding in from the viewport's left edge,
           straddling the image's bottom (original design: 1054x135 box at left-0) */}
-      <div className="relative z-10 mt-12 md:mt-20">
-        {/* wider content area for the feature image (team feedback), band behind */}
+      <div className="relative z-10 mt-14 md:mt-24">
+        {/* feature image on the shared rails; slightly less tall, more air above (team feedback) */}
         <div className="container-wide relative z-10">
           <img
             src={A('home-1.jpg')}
             alt=""
-            className="h-[44vw] max-h-[640px] min-h-[220px] w-full object-cover"
+            className="h-[40vw] max-h-[560px] min-h-[220px] w-full object-cover"
             fetchPriority="high"
           />
         </div>
