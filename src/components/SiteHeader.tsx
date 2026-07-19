@@ -46,13 +46,15 @@ export default function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur">
-      <div className="container-page flex h-20 items-center justify-between gap-4 md:h-24">
+      {/* On desktop the header mirrors the hero's grid, so the nav spans exactly
+          the same column as the hero description text (team feedback) */}
+      <div className="container-page flex h-20 items-center justify-between gap-4 md:h-24 lg:grid lg:grid-cols-[1.25fr_1fr] lg:gap-6">
         <Link to="/" aria-label="FS Student Hedge Fund home" className="shrink-0">
           <img src={A('logo-nav.png')} alt="FS Student Hedge Fund" className="h-10 w-auto sm:h-12" width="243" height="66" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center lg:flex lg:justify-between" aria-label="Primary">
           <NavLink to="/newsroom" className={navCls}>Newsroom</NavLink>
           <NavLink to="/research" className={navCls}>Research</NavLink>
           <div ref={deptRef} className="relative">
