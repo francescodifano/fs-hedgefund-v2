@@ -32,7 +32,7 @@ export function DeptLeads({ names }: { names: string[] }) {
         ))}
       </div>
       <Link to="/about" className="mt-8 inline-flex items-center gap-2 font-sans font-extrabold text-navy transition-transform hover:translate-x-1">
-        Meet the whole team <span aria-hidden>→</span>
+        Meet the whole board <span aria-hidden>→</span>
       </Link>
     </section>
   )

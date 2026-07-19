@@ -34,7 +34,7 @@ function ReportCarousel() {
 
   return (
     <div>
-      <div className="relative isolate min-h-[300px] overflow-hidden">
+      <div className="relative isolate min-h-[380px] overflow-hidden">
         {REPORTS.map((r, i) => (
           <div
             key={r.title}
@@ -93,7 +93,8 @@ function ReportCarousel() {
 export default function SiteFooter() {
   return (
     <footer className="bg-navy text-white">
-      <div className="container-page grid gap-12 py-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-20">
+      {/* narrower carousel column + wider gap to the link columns (team feedback) */}
+      <div className="container-page grid gap-12 py-14 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-24 lg:py-20">
         <ReportCarousel />
 
         {/* Link + contact columns */}
@@ -103,8 +104,7 @@ export default function SiteFooter() {
             <ul className="mt-3">
               {FOOTER_PAGES.map((p) => (
                 <li key={p.to}>
-                  {/* block + py-2 keeps rows at a comfortable ~40px touch height */}
-                  <Link to={p.to} className="block py-2 text-white transition-opacity hover:opacity-70">{p.label}</Link>
+                  <Link to={p.to} className="block py-1 text-white transition-opacity hover:opacity-70">{p.label}</Link>
                 </li>
               ))}
             </ul>

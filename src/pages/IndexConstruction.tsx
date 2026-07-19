@@ -52,8 +52,9 @@ export default function IndexConstruction() {
       </section>
 
       <section className="container-page pt-28 pb-16 md:pt-36 md:pb-24">
-        <p className="font-sans text-sm font-bold tracking-wide text-navy/60">Department 01</p>
-        <div className="mt-6 max-w-4xl space-y-6 text-lead text-navy/85">
+        <h2 className="font-display text-h1 font-bold text-navy">About</h2>
+        <div className="mt-5 h-px w-full bg-navy/15" />
+        <div className="mt-8 space-y-6 text-lead text-navy/85">
           <p>
             The Index Construction department translates market insights into investable strategies. Our members
             analyze financial markets, identify opportunities, and develop thematic baskets by selecting relevant
@@ -80,36 +81,54 @@ export default function IndexConstruction() {
         </div>
       </section>
 
-      {/* Our Process — the Figma design's two-row box system:
+      {/* From Research to Products — the Figma box system with flow arrows:
           navy boxes = FSHF internal stages, light boxes = partner stages */}
       <section className="container-page py-16 md:py-24">
-        <h2 className="font-display text-h1 font-bold text-navy">From Research to Tradable Products</h2>
+        <h2 className="font-display text-h1 font-bold text-navy">From Research to Products</h2>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {INTERNAL.map((s) => (
-            <div key={s.n} className="bg-navy p-7 text-white md:p-8">
-              <div className="flex items-baseline gap-4">
-                <span className="font-display text-3xl font-bold">{s.n}</span>
-                <h3 className="font-sans text-2xl font-extrabold">{s.title}</h3>
+        <div className="mt-12 flex flex-col gap-6 md:flex-row md:items-stretch md:gap-4">
+          {INTERNAL.map((s, i) => (
+            <div key={s.n} className="contents">
+              {i > 0 && (
+                <div aria-hidden className="flex items-center justify-center text-3xl font-bold text-navy/50">
+                  <span className="md:hidden">↓</span>
+                  <span className="hidden md:block">→</span>
+                </div>
+              )}
+              <div className="flex-1 bg-navy p-7 text-white md:p-8">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-display text-3xl font-bold">{s.n}</span>
+                  <h3 className="font-sans text-2xl font-extrabold">{s.title}</h3>
+                </div>
+                <p className="mt-4 text-white/85">{s.desc}</p>
               </div>
-              <p className="mt-4 text-white/85">{s.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-5 grid gap-5 md:grid-cols-2">
-          {PARTNERS.map((p) => (
-            <div key={p.name} className="bg-mist p-7 text-navy md:p-8">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="font-sans text-2xl font-extrabold">{p.name}</h3>
-                <span className="font-display text-lg text-navy/70">{p.tag}</span>
+        <div aria-hidden className="my-6 flex justify-center text-3xl font-bold text-navy/50 md:my-8">↓</div>
+
+        <div className="flex flex-col gap-6 md:flex-row md:items-stretch md:gap-4">
+          {PARTNERS.map((p, i) => (
+            <div key={p.name} className="contents">
+              {i > 0 && (
+                <div aria-hidden className="flex items-center justify-center text-3xl font-bold text-navy/50">
+                  <span className="md:hidden">↓</span>
+                  <span className="hidden md:block">→</span>
+                </div>
+              )}
+              <div className="flex-1 bg-mist p-7 text-navy md:p-8">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="font-sans text-2xl font-extrabold">{p.name}</h3>
+                  <span className="font-display text-lg text-navy/70">{p.tag}</span>
+                </div>
+                <p className="mt-4 text-navy/80">{p.desc}</p>
               </div>
-              <p className="mt-4 text-navy/80">{p.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-navy">
+        <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-navy">
           <span className="flex items-center gap-2.5">
             <span aria-hidden className="inline-block h-4 w-4 bg-navy" />
             FSHF Internal

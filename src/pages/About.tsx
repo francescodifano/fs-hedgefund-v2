@@ -66,9 +66,9 @@ export default function About() {
 
       {/* Meet the team */}
       <section className="container-page py-16 md:py-24">
-        <h2 className="font-display text-h1 font-bold text-navy">Meet the Team</h2>
+        <h2 className="font-display text-h1 font-bold text-navy">Meet the Board</h2>
         <p className="mt-4 max-w-2xl text-lead text-navy/70">
-          A selective team of students operating across our departments, building real financial products together.
+          The board members leading our departments, building real financial products together with the whole team.
         </p>
 
         <ul className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">

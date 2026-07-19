@@ -30,10 +30,10 @@ export default function Social() {
   usePageTitle('Media & Community')
   return (
     <article>
-      {/* Hero: real event photo with the department name band */}
+      {/* Hero: the payphones picture (restored per team feedback) with the name band */}
       <section className="relative">
         <img
-          src={A('soc-8.jpg')}
+          src={A('soc-1.jpg')}
           alt=""
           className="h-[48vw] max-h-[520px] min-h-[240px] w-full object-cover"
           fetchPriority="high"
@@ -50,9 +50,8 @@ export default function Social() {
 
       {/* About */}
       <section className="container-page pt-28 pb-16 md:pt-36 md:pb-24">
-        <div className="max-w-4xl">
-          <p className="font-sans text-sm font-bold tracking-wide text-navy/60">Department 05</p>
-          <h2 className="mt-3 font-display text-h1 font-bold text-navy">About</h2>
+        <div>
+          <h2 className="font-display text-h1 font-bold text-navy">About</h2>
           <div className="mt-5 h-px w-full bg-navy/15" />
           <p className="mt-8 text-lead text-navy/85">
             Reach isn't a coincidence, we build it. Our social media platforms document the work of the initiative

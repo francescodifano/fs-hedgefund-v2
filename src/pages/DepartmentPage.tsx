@@ -29,16 +29,12 @@ export default function DepartmentPage({ slug }: { slug: string }) {
       </section>
 
       <section className="container-page pt-28 pb-16 md:pt-36 md:pb-24">
-        {/* Heading, rule and copy share one measure so the rule doesn't run into an empty right column */}
-        <div className="max-w-4xl">
-          <p className="font-sans text-sm font-bold tracking-wide text-navy/60">Department {d.num}</p>
-          <h2 className="mt-3 font-display text-h1 font-bold text-navy">About</h2>
-          <div className="mt-5 h-px w-full bg-navy/15" />
-          <div className="mt-8 space-y-5 text-lead text-navy/85">
-            {d.body.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
+        <h2 className="font-display text-h1 font-bold text-navy">About</h2>
+        <div className="mt-5 h-px w-full bg-navy/15" />
+        <div className="mt-8 space-y-5 text-lead text-navy/85">
+          {d.body.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
         </div>
       </section>
 

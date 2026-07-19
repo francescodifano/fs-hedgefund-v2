@@ -80,6 +80,14 @@
   padding-inline: clamp(1.25rem, 5vw, 4rem);
 }
 
+/* Wider variant for feature imagery (hero photos span wider than text content) */
+@utility container-wide {
+  width: 100%;
+  max-width: 96rem; /* 1536px */
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

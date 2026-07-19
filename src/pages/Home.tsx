@@ -55,22 +55,24 @@ export default function Home() {
       {/* Hero image with the navy band bleeding in from the viewport's left edge,
           straddling the image's bottom (original design: 1054x135 box at left-0) */}
       <div className="relative z-10 mt-12 md:mt-20">
-        {/* image layered above the band (band peeks out left and below, unchanged position) */}
-        <div className="container-page relative z-10">
+        {/* wider content area for the feature image (team feedback), band behind */}
+        <div className="container-wide relative z-10">
           <img
             src={A('home-1.jpg')}
             alt=""
-            className="h-[42vw] max-h-[600px] min-h-[220px] w-full object-cover"
+            className="h-[44vw] max-h-[640px] min-h-[220px] w-full object-cover"
             fetchPriority="high"
           />
         </div>
         <div aria-hidden className="absolute -bottom-6 left-0 z-0 h-16 w-[78vw] bg-navy md:-bottom-10 md:h-28 md:w-[70vw] md:max-w-[1054px]" />
       </div>
 
-      {/* One team, one mission + stats + team photo */}
-      <section className="container-page pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
+      {/* One team, one mission + stats + team photo.
+          Wide grid: text hugs the left, the bigger photo sits right and
+          stretches to the height of the whole text block (team feedback). */}
+      <section className="container-wide pt-24 pb-16 md:pt-32 md:pb-24">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-stretch lg:gap-16">
+          <div className="max-w-xl">
             <h2 className="font-display text-h1 font-bold text-navy">
               One Team.
               <br />
@@ -93,7 +95,7 @@ export default function Home() {
           <img
             src={A('team-hero.jpg')}
             alt="The FS Student Hedge Fund team"
-            className="aspect-[4/3] w-full object-cover object-[50%_20%]"
+            className="aspect-[4/3] w-full object-cover object-[50%_20%] lg:aspect-auto lg:h-full"
             loading="lazy"
           />
         </div>

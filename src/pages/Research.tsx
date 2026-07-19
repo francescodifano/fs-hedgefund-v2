@@ -24,11 +24,11 @@ export default function Research() {
           edge, straddling the image bottom (same treatment as the homepage hero) */}
       <div className="relative z-10 mt-12 md:mt-20">
         {/* image layered above the band (band peeks out left and below, unchanged position) */}
-        <div className="container-page relative z-10">
+        <div className="container-wide relative z-10">
           <img
             src={A('research-3.jpg')}
             alt=""
-            className="h-[38vw] max-h-[520px] min-h-[200px] w-full object-cover"
+            className="h-[44vw] max-h-[640px] min-h-[220px] w-full object-cover"
             fetchPriority="high"
           />
         </div>
