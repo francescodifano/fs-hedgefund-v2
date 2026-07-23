@@ -47,11 +47,11 @@ jobs:
     steps:
       - name: Warm CDN cache
         run: |
-          BASE="https://francescodifano.github.io/fs-hedgefund-site"
+          BASE="https://fs-student-hedgefund.com"
           sleep 10
           HTML=$(curl -s "$BASE/")
           # bundle (hashed name changes every deploy)
-          echo "$HTML" | grep -oE '/fs-hedgefund-site/assets/index-[A-Za-z0-9_-]+\.(js|css)' | sort -u | while read -r p; do
+          echo "$HTML" | grep -oE '/assets/index-[A-Za-z0-9_-]+\.(js|css)' | sort -u | while read -r p; do
             curl -s -o /dev/null -w "warmed %{time_total}s  $p\n" "https://francescodifano.github.io$p"
           done
           # all images and the report

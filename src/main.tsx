@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 
-// Real path URLs (…/fs-hedgefund-site/hedge-fund). Direct deep links work on
+// Real path URLs (fs-student-hedgefund.com/hedge-fund). Direct deep links work on
 // GitHub Pages via the 404.html fallback (copied from index.html at build).
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
